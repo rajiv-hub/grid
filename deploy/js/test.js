@@ -42,7 +42,7 @@ describe('Suite - Grid', function () {
 		it('spec - Check grid with response', inject(function() {
 			spyOn(suite.scope, 'getGridData').and.callThrough();
 			var gridResponseData = [{"userId": 1,"id": 1,"title": "test","body": "test"}];
-			suite.$httpBackend.expectGET('http://jsonplaceholder.typicode.com/posts').respond(200, gridResponseData);
+			suite.$httpBackend.expectGET('https://jsonplaceholder.typicode.com/posts').respond(200, gridResponseData);
 			suite.scope.getGridData();
 			suite.$httpBackend.flush();
 			expect(suite.scope.gridOptions.data).toEqual(gridResponseData);
@@ -52,7 +52,7 @@ describe('Suite - Grid', function () {
 		it('spec - Check grid for empty response', inject(function() {
 			spyOn(suite.scope, 'getGridData').and.callThrough();
 			var gridResponseData = undefined;
-      suite.$httpBackend.expectGET('http://jsonplaceholder.typicode.com/posts').respond(200, gridResponseData);
+      suite.$httpBackend.expectGET('https://jsonplaceholder.typicode.com/posts').respond(200, gridResponseData);
       suite.scope.getGridData();
 			suite.$httpBackend.flush();
 	    expect(suite.scope.gridOptions.data).toEqual([]);
@@ -63,7 +63,7 @@ describe('Suite - Grid', function () {
 		it('spec - serverError', inject(function() {
 			spyOn(suite.scope, 'getGridData').and.callThrough();
 			var gridResponseData = 'not found';
-			suite.$httpBackend.expectGET('http://jsonplaceholder.typicode.com/posts').respond(404 , gridResponseData);
+			suite.$httpBackend.expectGET('https://jsonplaceholder.typicode.com/posts').respond(404 , gridResponseData);
 			suite.scope.getGridData();
 			suite.$httpBackend.flush();
 			expect(suite.scope.status).toEqual('SERVER NOT RESPONDING');
