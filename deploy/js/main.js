@@ -26,7 +26,7 @@ var app = angular.module('accionLab', ['ui.grid', 'ui.grid.pagination', 'ui.grid
 	$scope.getGridData = function(){
 		$http({
 			method : "GET",
-			url : "http://jsonplaceholder.typicode.com/posts"
+			url : "https://jsonplaceholder.typicode.com/posts"
 		})
 		.then(function mySuccess(response) {
 				$scope.serverError = false;
