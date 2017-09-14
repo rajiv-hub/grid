@@ -1,0 +1,41 @@
+.myGrid {
+    width: 500px;
+   // height: 250px;
+}
+
+.noData {
+    position: absolute;
+    top : 80px;
+    opacity: 0.25;
+    font-size: 3em;
+    width: 100%;
+    text-align: center;
+    z-index: 1000;
+}
+.gridBody {
+    margin-top: 70px;
+    position: relative;
+
+}
+.loadImg {
+    background: url(../loading.gif);
+    position: absolute;
+    width: 265px;
+    z-index: 9999;
+    height: 265px;
+    left: 40%;
+    top: 20%;
+}
+.gridContent {
+    padding: 40px 30px;
+    box-sizing: border-box;
+    min-height: 400px;
+}
+.serverError {
+    font-size: 25px;
+    text-align: center;
+    color: red;
+}
+.gridPopupBtn {
+    margin-top: 50px;
+}

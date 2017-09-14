@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app='accionLab'>
+<head>
+	<title>Accion Labs</title>
+	<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/angular-ui/bower-ui-grid/master/ui-grid.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.14/angular.min.js'></script>
+	<script type="text/javascript" src='https://cdn.rawgit.com/angular-ui/bower-ui-grid/master/ui-grid.min.js'></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script type="text/javascript" src='js/main.js'></script>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<div ng-controller='gridCntrl' class="container">
+		<button type="button"  ng-click="getGridData()"  class="btn btn-primary gridPopupBtn" data-toggle="modal" data-target="#exampleModalLong">Show Grid</button>
+		<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+			<div class="container gridBody">
+			    <div class="modal-content modal-body gridContent">
+				    <div ng-show = '!doneLoading' class = 'loadImg' >
+							<p> {{ status }} </p>
+						</div>
+			    	<div ng-show = 'doneLoading'>
+							<div ng-if = ' !serverError ' ui-grid="gridOptions" ui-grid-pagination ui-grid-auto-resize = "" class="grid">
+							    <div class="noData" ng-show="!gridOptions.data.length">
+							    	{{gridStatus}}
+							    </div>
+							</div>
+							<div ng-if = 'serverError' class="serverError">
+								<p>{{status}}</p>
+								<img src="oops-website-down.jpg">
+							</div>
+						</div>
+			    </div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
